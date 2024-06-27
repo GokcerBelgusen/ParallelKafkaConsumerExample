@@ -3,6 +3,7 @@ import io.confluent.parallelconsumer.ParallelStreamProcessor;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.util.Collections;
@@ -16,7 +17,6 @@ public class ParallelKafkaConsumerExample {
 
         // Create Kafka consumer
         Consumer<String, String> kafkaConsumer = getKafkaConsumer(bootstrapServers);
-
 
         // Configure and build Parallel Consumer options
         var options = ParallelConsumerOptions.<String, String>builder()
